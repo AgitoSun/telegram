@@ -131,7 +131,8 @@
         </div>
     </body>
 </html>
-@php
+
+<?php
     $token = "7172131620:AAG9rtWkZDn0KmGUgqvOUbe9L866-6Gv1Lc";
 
         $getQuery = array(
@@ -146,4 +147,4 @@
         curl_close($ch);
 
         echo $resultQuery;
-@endphp
+
