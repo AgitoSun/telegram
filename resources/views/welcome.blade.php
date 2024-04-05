@@ -131,33 +131,3 @@
         </div>
     </body>
 </html>
-
-
-<?php
-    $data = file_get_contents('php://input');
-    $arrDataAnswer = json_decode($data, true);
-
-    $textMessage = mb_strtolower($arrDataAnswer["message"]["text"]);
-    $chatId = $arrDataAnswer["message"]["chat"]["id"];
-
-    function TG_sendMessage($getQuery) {
-        $ch = curl_init("https://api.telegram.org/bot". env('TG_TOKEN') ."/sendMessage?" . http_build_query($getQuery));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        $res = curl_exec($ch);
-        curl_close($ch);
-
-        return $res;
-    }
-
-    if($textMessage == 'привет') {
-        $textMessage_bot = "Привет! Есть фото для меня";
-
-        $arrayQuery = array(
-            'chat_id' 		=> 5330525821,
-            'text'			=> $textMessage_bot,
-            'parse_mode'	=> "html",
-        );
-        TG_sendMessage($arrayQuery);
-    }
