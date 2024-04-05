@@ -131,3 +131,19 @@
         </div>
     </body>
 </html>
+@php
+    $token = "7172131620:AAG9rtWkZDn0KmGUgqvOUbe9L866-6Gv1Lc";
+
+        $getQuery = array(
+            "url" => "https://podlegaevm.ru",
+        );
+        $ch = curl_init("https://api.telegram.org/bot". $token ."/setWebhook?" . http_build_query($getQuery));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+
+        $resultQuery = curl_exec($ch);
+        curl_close($ch);
+
+        echo $resultQuery;
+@endphp
