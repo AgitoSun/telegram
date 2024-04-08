@@ -16,4 +16,16 @@ class Message extends Bot
         ];
         return $this;
     }
+
+    public function inlineButtons(mixed $chat_id, string $text, array $buttons)
+    {
+        $this->method = 'sendMessage';
+        $this->data = [
+            'chat_id' => $chat_id,
+            'text' => $text,
+            'parse_mode' => 'html',
+            'reply_markup' => $buttons
+        ];
+        return $this;
+    }
 }

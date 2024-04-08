@@ -7,7 +7,8 @@ use App\Telegram\Bot\Message;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static Message message(mixed $chat_id, $text, $reply_id = null)
+ * @method static Message message(mixed $chat_id, string $text, $reply_id = null)
+ * @method static Message inlineButtons(mixed $chat_id, string $text, array $buttons)
  * @method Bot send()
  */
 
