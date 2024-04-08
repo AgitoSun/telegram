@@ -2,13 +2,15 @@
 
 namespace App\Telegram\Webhook;
 
+use App\Telegram\Webhook\Commands\Problem;
 use App\Telegram\Webhook\Commands\Start;
 use Illuminate\Http\Request;
 
 class Realization
 {
     protected const Commands = [
-        '/start' => Start::class
+        '/start' => Start::class,
+        '/problem' => Problem::class
     ];
 
     public function take(Request $request)
