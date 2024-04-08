@@ -18,7 +18,7 @@ class Webhook
 
     public function run()
     {
-        Telegram::message(5330525821, 'Не удалось обработать сообщение')->send();
+        dd(Telegram::message(5330525821, 'Не удалось обработать сообщение')->send());
 //       dd($this->telegram->message(5330525821, 'Не удалось обработать сообщение')->send());
     }
 }
