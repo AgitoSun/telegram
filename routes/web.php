@@ -15,14 +15,18 @@ use Illuminate\Support\Facades\Http;
 |
 */
 
-$http = Http::post('https://api.telegram.org/bot7172131620:AAG9rtWkZDn0KmGUgqvOUbe9L866-6Gv1Lc/setWebhook',
-[
-    'url' => 'https://podlegaevm.ru/api/webhook'
-])->json();
-dd($http);
+//$http = Http::post('https://api.telegram.org/bot7172131620:AAG9rtWkZDn0KmGUgqvOUbe9L866-6Gv1Lc/setWebhook',
+//[
+//    'url' => 'https://podlegaevm.ru/api/webhook'
+//])->json();
+//dd($http);
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/webhook-data', function () {
+    \Illuminate\Support\Facades\Cache::get('webhook-data');
 });
 
 Route::get('/dashboard', function () {
