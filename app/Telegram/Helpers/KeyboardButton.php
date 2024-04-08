@@ -10,7 +10,7 @@ class KeyboardButton
         'keyboard' => [
 
         ],
-        'resize_keyboard'
+        'resize_keyboard' => true
     ];
     public static function add(mixed $text, int $row = 1)
     {
