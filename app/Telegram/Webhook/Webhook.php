@@ -18,6 +18,6 @@ class Webhook
 
     public function run()
     {
-       return $this->telegram->send(5330525821, 'Не удалось обработать сообщение')->send();
+       return $this->telegram->message(5330525821, 'Не удалось обработать сообщение')->send();
     }
 }
