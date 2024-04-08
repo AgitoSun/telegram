@@ -13,15 +13,15 @@ class WebhookController extends Controller
     public function index(Request $request, Webhook $webhook, Realization $realization)
     {
         Cache::forever('webhook-data', $request->all());
-        $path = $realization->take($request);
-        if ($path)
-        {
-            App::make($path)->run();
-            return true;
-        } else
-        {
-
-        }
+//        $path = $realization->take($request);
+//        if ($path)
+//        {
+//            App::make($path)->run();
+//            return true;
+//        } else
+//        {
+//
+//        }
         $webhook->run();
         return true;
     }
