@@ -12,7 +12,6 @@ class WebhookController extends Controller
 {
     public function index(Request $request, Webhook $webhook, Realization $realization)
     {
-        return true;
         Cache::forever('webhook-data', $request->all());
         $path = $realization->take($request);
         if ($path)
@@ -21,9 +20,9 @@ class WebhookController extends Controller
             return true;
         } else
         {
-          $webhook->run();
-        }
 
+        }
+        $webhook->run();
         return true;
     }
 }
