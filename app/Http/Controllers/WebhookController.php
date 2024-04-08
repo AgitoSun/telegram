@@ -22,7 +22,7 @@ class WebhookController extends Controller
         {
           $webhook->run();
         }
-        $webhook->run();
+
         return true;
     }
 }
