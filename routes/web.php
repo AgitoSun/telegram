@@ -19,6 +19,7 @@ $http = Http::post('https://api.telegram.org/bot7172131620:AAG9rtWkZDn0KmGUgqvOU
 [
     'url' => 'https://podlegaevm.ru/api/webhook'
 ])->json();
+dd($http);
 
 Route::get('/', function () {
     return view('welcome');
