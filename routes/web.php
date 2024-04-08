@@ -39,8 +39,8 @@ use Illuminate\Support\Facades\Http;
 //    'number' => 1
 //]);
 //\App\Telegram\Helpers\InlineButton::link('Вторая кнопка', 'https://prog-time.ru/course/bot-v-telegram-5/');
-\App\Telegram\Helpers\KeyboardButton::add('Тестовая кнопка');
-dd(\App\Facades\Telegram::inlineButtons(5330525821, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send());
+//\App\Telegram\Helpers\KeyboardButton::add('Тестовая кнопка');
+//dd(\App\Facades\Telegram::inlineButtons(5330525821, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send());
 
 
 Route::get('/', function () {
