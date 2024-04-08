@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Facades\Telegram;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -24,7 +25,7 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            //
+//            Telegram::message(5330525821, $text)->send();
         });
     }
 }
