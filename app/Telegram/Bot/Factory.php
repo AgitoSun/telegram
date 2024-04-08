@@ -14,9 +14,9 @@ class Factory
     {
         foreach ($this as $key => $prop)
         {
-            if (method_exists($this->key, $name))
+            if (method_exists($this->$key, $name))
             {
-                return call_user_func_array([$this->key, $name], $arguments);
+                return call_user_func_array([$this->$key, $name], $arguments);
             }
         }
         throw new \Exception('Такого метода '.$name.' не нашлось');
