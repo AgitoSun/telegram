@@ -35,10 +35,10 @@ use Illuminate\Support\Facades\Http;
 //    ]
 //])->send();
 
-//\App\Telegram\Helpers\InlineButton::add('Тестовая кнопка', 'Test', [
-//    'number' => 1
-//]);
-//dd(\App\Facades\Telegram::inlineButtons(5330525821, 'asdasd', \App\Telegram\Helpers\InlineButton::$buttons));
+\App\Telegram\Helpers\InlineButton::add('Тестовая кнопка', 'Test', [
+    'number' => 1
+]);
+dd(\App\Facades\Telegram::inlineButtons(5330525821, 'asdasd', \App\Telegram\Helpers\InlineButton::$buttons));
 
 Route::get('/', function () {
     return view('welcome');
