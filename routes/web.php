@@ -35,13 +35,11 @@ use Illuminate\Support\Facades\Http;
 //    ]
 //])->send();
 
-//\App\Telegram\Helpers\InlineButton::add('Тестовая кнопка', 'Test', [
-//    'number' => 1
-//]);
-//\App\Telegram\Helpers\InlineButton::add('Вторая кнопка', 'Test', [
-//    'number' => 2
-//]);
-//dd(\App\Facades\Telegram::inlineButtons(5330525821, 'asdasd', \App\Telegram\Helpers\InlineButton::$buttons)->send());
+\App\Telegram\Helpers\InlineButton::add('Тестовая кнопка', 'Test', [
+    'number' => 1
+]);
+\App\Telegram\Helpers\InlineButton::link('Вторая кнопка', 'https://prog-time.ru/course/bot-v-telegram-5/');
+dd(\App\Facades\Telegram::inlineButtons(5330525821, 'asdasd', \App\Telegram\Helpers\InlineButton::$buttons)->send());
 
 
 Route::get('/', function () {
