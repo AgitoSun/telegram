@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Http;
 //$http = Http::post('https://api.telegram.org/bot7172131620:AAG9rtWkZDn0KmGUgqvOUbe9L866-6Gv1Lc/getWebhookInfo')->json();
 //dd($http);
 
-\App\Facades\Telegram::message(5330525821, 'test')->send();
+dd(\App\Facades\Telegram::message(5330525821, 'test')->send());
 
 Route::get('/', function () {
     return view('welcome');
