@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+$http = Http::post('https://api.telegram.org/bot7172131620:AAG9rtWkZDn0KmGUgqvOUbe9L866-6Gv1Lc/setWebhook',
+[
+    'url' => 'https://podlegaevm.ru/api/webhook'
+])->json();
 
 Route::get('/', function () {
     return view('welcome');
