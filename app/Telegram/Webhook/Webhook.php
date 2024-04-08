@@ -8,16 +8,14 @@ use Illuminate\Http\Request;
 class Webhook
 {
     protected Request $request;
-    protected Telegram $telegram;
 
-    public function __construct(Request $request, Telegram $telegram)
+    public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->telegram = $telegram;
     }
 
     public function run()
     {
-        Telegram::message(5330525821, 'Не удалось обработать сообщение')->send();
+        return Telegram::message(5330525821, 'Не удалось обработать сообщение')->send();
     }
 }
