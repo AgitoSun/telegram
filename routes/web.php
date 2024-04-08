@@ -24,16 +24,16 @@ use Illuminate\Support\Facades\Http;
 
 //\App\Facades\Telegram::message(5330525821, 'test')->send();
 
-\App\Facades\Telegram::inlineButtons(5330525821, 'Кнопки', [
-    'inline_keyboard' => [
-        [
-            [
-                'text' => 'Кнопка 1',
-                'callback_data' => '123'
-            ]
-        ]
-    ]
-])->send();
+//\App\Facades\Telegram::inlineButtons(5330525821, 'Кнопки', [
+//    'inline_keyboard' => [
+//        [
+//            [
+//                'text' => 'Кнопка 1',
+//                'callback_data' => '123'
+//            ]
+//        ]
+//    ]
+//])->send();
 
 Route::get('/', function () {
     return view('welcome');
