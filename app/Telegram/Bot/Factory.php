@@ -21,6 +21,6 @@ class Factory
                 return call_user_func_array([$this->$key, $name], $arguments);
             }
         }
-        throw new \Exception('Такого метода '.$name.' не нашлось');
+        throw new \Exception('Такого метода '.$name.' не существует');
     }
 }
