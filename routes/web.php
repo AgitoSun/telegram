@@ -43,13 +43,13 @@ use Illuminate\Support\Facades\Http;
 //\App\Telegram\Helpers\KeyboardButton::remove();
 //dd(\App\Facades\Telegram::inlineButtons(5330525821, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send());
 
-$file = \Illuminate\Support\Facades\Storage::get('public/attachment.jpg');
-dd($file);
-dd(\App\Facades\Telegram::document(5330525821, $file, 'скан'));
+
 
 
 Route::get('/', function () {
-
+    $file = \Illuminate\Support\Facades\Storage::get('public/attachment.jpg');
+    dd($file);
+    dd(\App\Facades\Telegram::document(5330525821, $file, 'скан'));
     return view('welcome');
 });
 
