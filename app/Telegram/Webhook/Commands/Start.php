@@ -24,8 +24,16 @@ class Start extends Webhook
 //        ]);
 
         $telegram_id =  Request::input('message')['from']['id'];
-        $user = User::all()->where('telegram_id', $telegram_id);
+        $user = User::all()->where('telegram_id', $telegram_id)->first();
         $text = 'Пользователь не найден, обратитесь к администратору';
+
+        if (!empty($user))
+        {
+            if ($user->telegram_id == $telegram_id)
+            {
+                $text = $user->name.', добро пожаловать!';
+            }
+        }
 
 //        if (!empty($user))
 //        {
