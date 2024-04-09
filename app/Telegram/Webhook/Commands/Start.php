@@ -14,16 +14,19 @@ class Start extends Webhook
 {
     public function run()
     {
-       $username =  Request::input('message')['from']['username'];
-       $telegram_id =  Request::input('message')['from']['id'];
-        User::create([
-            'name' => $username,
-            'email' => 'zeke@mail.ru',
-            'password' => Hash::make('123123123'),
-            'telegram_id' => $telegram_id
-        ]);
+//       $username =  Request::input('message')['from']['username'];
+//       $telegram_id =  Request::input('message')['from']['id'];
+//        User::create([
+//            'name' => $username,
+//            'email' => 'zeke@mail.ru',
+//            'password' => Hash::make('123123123'),
+//            'telegram_id' => $telegram_id
+//        ]);
+
+        $telegram_id =  Request::input('message')['from']['id'];
+        $user = User::with('telegram_id', $telegram_id);
 
 
-       return Telegram::message(5330525821, $username)->send();
+       return Telegram::message(5330525821, $user->name)->send();
     }
 }
