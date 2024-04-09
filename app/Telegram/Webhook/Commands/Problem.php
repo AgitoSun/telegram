@@ -9,7 +9,7 @@ class Problem extends Webhook
 {
     public function run()
     {
-       $telegram_id = $this->request->input('message')['from']['id'];
-       return Telegram::message($telegram_id, 'Техподдержка')->send();
+        $telegram_id =  $this->request->input('message')['from']['id'];
+        return Telegram::message($telegram_id, 'Техподдержка')->send();
     }
 }

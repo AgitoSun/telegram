@@ -22,7 +22,7 @@ class Start extends Webhook
 //        ]);
 //        $text = 'Пользователь '.$username.' добавлен';
 
-        $telegram_id =  Request::input('message')['from']['id'];
+        $telegram_id =  $this->request->input('message')['from']['id'];
         $user = User::all()->where('telegram_id', $telegram_id)->first();
         $text = 'Пользователь не найден, обратитесь к администратору';
 

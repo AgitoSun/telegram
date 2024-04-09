@@ -9,6 +9,7 @@ class Webhook
 {
     protected Request $request;
 
+
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -16,7 +17,7 @@ class Webhook
 
     public function run()
     {
-        $telegram_id =  \Illuminate\Support\Facades\Request::input('message')['from']['id'];
+        $telegram_id =  $this->request->input('message')['from']['id'];
         return Telegram::message($telegram_id, 'Не удалось обработать сообщение')->send();
     }
 }
