@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static Message inlineButtons(mixed $chat_id, string $text, array $buttons)
  * @method static File document(mixed $chat_id, $file, string $filename, $reply_id = null)
  * @method static File photo(mixed $chat_id, $file, string $filename, $reply_id = null)
+ * @method static File mediaGroup(mixed $chat_id, array $file_url, $reply_id = null)
  * @method Bot send()
  */
 

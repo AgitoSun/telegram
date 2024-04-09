@@ -36,8 +36,29 @@ class File extends Bot
         return $this;
     }
 
+    public function mediaGroup(mixed $chat_id, array $file_url, $reply_id = null)
+    {
+        $this->method = 'InputMediaPhoto';
+        $this->type = 'media';
+        foreach ($file_url as $key => $url)
+        {
+            $this->data['media'][] = [
+                'url' => $url,
+                'type' => 'photo'
+            ];
+        }
+        $this->data = [
+            'chat_id' => $chat_id
+        ];
+        return $this;
+    }
+
     public function send()
     {
-        return Http::attach($this->type, $this->file, $this->filename)->post('https://api.telegram.org/bot'.env('TELEGRAM_BOT_TOKEN').'/'.$this->method, $this->data)->json();
+        if ($this->file)
+        {
+            return Http::attach($this->type, $this->file, $this->filename)->post('https://api.telegram.org/bot'.env('TELEGRAM_BOT_TOKEN').'/'.$this->method, $this->data)->json();
+        }
+        return Http::post('https://api.telegram.org/bot'.env('TELEGRAM_BOT_TOKEN').'/'.$this->method, $this->data)->json();
     }
 }
