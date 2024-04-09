@@ -31,6 +31,7 @@ class Start extends Webhook
             {
                 $text = $user->name.', добро пожаловать!';
                 \App\Telegram\Helpers\KeyboardButton::add('Тестовая кнопка');
+                \App\Facades\Telegram::inlineButtons($telegram_id, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send();
             }
         }
 
