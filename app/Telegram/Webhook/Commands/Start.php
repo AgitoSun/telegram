@@ -3,11 +3,8 @@
 namespace App\Telegram\Webhook\Commands;
 
 use App\Facades\Telegram;
-use App\Http\Controllers\WebhookController;
 use App\Models\User;
 use App\Telegram\Webhook\Webhook;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Request;
 
 class Start extends Webhook
@@ -33,6 +30,7 @@ class Start extends Webhook
             if ($user->telegram_id == $telegram_id)
             {
                 $text = $user->name.', добро пожаловать!';
+                \App\Telegram\Helpers\KeyboardButton::add('Тестовая кнопка');
             }
         }
 
