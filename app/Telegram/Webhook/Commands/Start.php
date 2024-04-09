@@ -31,7 +31,7 @@ class Start extends Webhook
             if ($user->telegram_id == $telegram_id)
             {
                 $text = $user->name.', добро пожаловать!';
-                KeyboardButton::add('Тестовая кнопка');
+                KeyboardButton::remove();
                 Telegram::inlineButtons($telegram_id, 'Клавиатура', KeyboardButton::$buttons)->send();
             }
         }
