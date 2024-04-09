@@ -23,6 +23,12 @@ class Realization
                 return self::Commands[$command_name];
             }
         }
+        if ($request->input('callback_query'))
+        {
+            $data = json_decode($request->input('callback_query')['data']);
+            return '\App\Telegram\Webhook\Actions\\'.$data->action;
+        }
+
         return false;
     }
 }
