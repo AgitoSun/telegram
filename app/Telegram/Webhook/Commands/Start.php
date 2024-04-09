@@ -27,13 +27,13 @@ class Start extends Webhook
         $user = User::all()->where('telegram_id', $telegram_id);
         $text = 'Пользователь не найден, обратитесь к администратору';
 
-        if (!empty($user))
-        {
-            if ($user->telegram_id == $telegram_id)
-            {
-                $text = $user->name.', добро пожаловать!';
-            }
-        }
+//        if (!empty($user))
+//        {
+//            if ($user->telegram_id == $telegram_id)
+//            {
+//                $text = $user->name.', добро пожаловать!';
+//            }
+//        }
 
 
 
