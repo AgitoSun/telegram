@@ -21,6 +21,7 @@ class File extends Bot
         $this->data = [
             'chat_id' => $chat_id
         ];
+
         return $this;
     }
 
@@ -33,6 +34,7 @@ class File extends Bot
         $this->data = [
             'chat_id' => $chat_id
         ];
+
         return $this;
     }
 
@@ -50,6 +52,7 @@ class File extends Bot
         $this->data = [
             'chat_id' => $chat_id
         ];
+
         return $this;
     }
 
@@ -59,6 +62,7 @@ class File extends Bot
         {
             return Http::attach($this->type, $this->file, $this->filename)->post('https://api.telegram.org/bot'.env('TELEGRAM_BOT_TOKEN').'/'.$this->method, $this->data)->json();
         }
+
         return Http::post('https://api.telegram.org/bot'.env('TELEGRAM_BOT_TOKEN').'/'.$this->method, $this->data)->json();
     }
 }
