@@ -54,7 +54,7 @@ Route::get('/', function () {
         'https://podlegaevm.ru/storage/attachment.jpg',
         'https://podlegaevm.ru/storage/attachment2.jpg'
     ];
-    dd(\App\Facades\Telegram::mediaGroup(5330525821, $files));
+    dd(\App\Facades\Telegram::mediaGroup(5330525821, $files)->send());
     return view('welcome');
 });
 

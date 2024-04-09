@@ -40,18 +40,16 @@ class File extends Bot
 
     public function mediaGroup(mixed $chat_id, array $file_url, $reply_id = null)
     {
-        $this->method = 'InputMediaPhoto';
+        $this->method = 'sendMediaGroup';
         $this->type = 'media';
         foreach ($file_url as $key => $url)
         {
             $this->data['media'][] = [
-                'url' => $url,
+                'media' => $url,
                 'type' => 'photo'
             ];
         }
-        $this->data = [
-            'chat_id' => $chat_id
-        ];
+        $this->data['chat_id'] = $chat_id;
 
         return $this;
     }
