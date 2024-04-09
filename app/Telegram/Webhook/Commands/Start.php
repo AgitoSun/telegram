@@ -25,6 +25,7 @@ class Start extends Webhook
         $telegram_id =  $this->request->input('message')['from']['id'];
         $user = User::all()->where('telegram_id', $telegram_id)->first();
         $text = 'Пользователь не найден, обратитесь к администратору';
+        $result = Telegram::message($telegram_id, $text);
 
         if (!empty($user))
         {
@@ -42,8 +43,6 @@ class Start extends Webhook
                         ]
                     ]
                 ]);
-            } else {
-                $result =  Telegram::message($telegram_id, $text);
             }
         }
 
