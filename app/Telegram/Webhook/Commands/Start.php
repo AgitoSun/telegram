@@ -4,6 +4,7 @@ namespace App\Telegram\Webhook\Commands;
 
 use App\Facades\Telegram;
 use App\Models\User;
+use App\Telegram\Helpers\KeyboardButton;
 use App\Telegram\Webhook\Webhook;
 use Illuminate\Support\Facades\Request;
 
@@ -30,8 +31,8 @@ class Start extends Webhook
             if ($user->telegram_id == $telegram_id)
             {
                 $text = $user->name.', добро пожаловать!';
-                \App\Telegram\Helpers\KeyboardButton::add('Тестовая кнопка');
-                \App\Facades\Telegram::inlineButtons($telegram_id, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send();
+                KeyboardButton::add('Тестовая кнопка');
+                Telegram::inlineButtons($telegram_id, 'Клавиатура', KeyboardButton::$buttons)->send();
             }
         }
 

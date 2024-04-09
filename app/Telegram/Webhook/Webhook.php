@@ -16,6 +16,7 @@ class Webhook
 
     public function run()
     {
-        return Telegram::message(5330525821, 'Не удалось обработать сообщение')->send();
+        $telegram_id =  \Illuminate\Support\Facades\Request::input('message')['from']['id'];
+        return Telegram::message($telegram_id, 'Не удалось обработать сообщение')->send();
     }
 }
