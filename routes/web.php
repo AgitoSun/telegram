@@ -50,11 +50,9 @@ Route::get('/', function () {
 //    $file = \Illuminate\Support\Facades\Storage::get('public/attachment.jpg');
 //    dd(\App\Facades\Telegram::photo(5330525821, $file, 'скан')->send());
 
-    $url = \Illuminate\Support\Facades\Storage::url('public/attachment.jpg');
-    dd($url);
-
     $files = [
-
+        'https://podlegaevm.ru/storage/attachment.jpg',
+        'https://podlegaevm.ru/storage/attachment2.jpg'
     ];
     dd(\App\Facades\Telegram::mediaGroup(5330525821, $files)->send());
     return view('welcome');
