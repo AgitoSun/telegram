@@ -47,7 +47,7 @@ use Illuminate\Support\Facades\Http;
 
 
 Route::get('/', function () {
-    $file = \Illuminate\Support\Facades\Storage::get('public/attachment.jpg');
+    $file = \Illuminate\Support\Facades\Storage::get('/attachment.jpg');
     dd($file);
     dd(\App\Facades\Telegram::document(5330525821, $file, 'скан'));
     return view('welcome');
