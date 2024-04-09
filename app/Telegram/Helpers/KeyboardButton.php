@@ -19,4 +19,11 @@ class KeyboardButton
             'text' => $text,
         ];
     }
+
+    public static function remove()
+    {
+        self::$buttons = [
+            'remove_keyboard' => true
+        ];
+    }
 }
