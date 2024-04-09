@@ -40,11 +40,15 @@ use Illuminate\Support\Facades\Http;
 //]);
 //\App\Telegram\Helpers\InlineButton::link('Вторая кнопка', 'https://prog-time.ru/course/bot-v-telegram-5/');
 //\App\Telegram\Helpers\KeyboardButton::add('Тестовая кнопка');
-\App\Telegram\Helpers\KeyboardButton::remove();
-dd(\App\Facades\Telegram::inlineButtons(5330525821, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send());
+//\App\Telegram\Helpers\KeyboardButton::remove();
+//dd(\App\Facades\Telegram::inlineButtons(5330525821, 'Клавиатура', \App\Telegram\Helpers\KeyboardButton::$buttons)->send());
+
+
 
 
 Route::get('/', function () {
+    $file = \Illuminate\Support\Facades\Storage::get('public/скан.pdf');
+    dd(\App\Facades\Telegram::document(5330525821, $file, 'скан')->send());
     return view('welcome');
 });
 

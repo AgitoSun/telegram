@@ -5,9 +5,11 @@ namespace App\Telegram\Bot;
 class Factory
 {
     private Message $message;
+    private File $file;
     public function __construct()
     {
         $this->message = new Message();
+        $this->file = new File();
     }
 
     public function __call(string $name, array $arguments)
