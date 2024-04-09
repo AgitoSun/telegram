@@ -24,7 +24,7 @@ class Start extends Webhook
 //        ]);
 
         $telegram_id =  Request::input('message')['from']['id'];
-        $user = User::with('telegram_id', $telegram_id);
+        $user = User::all()->firstOrFail('telegram_id', '5330525821');
 
 
        return Telegram::message(5330525821, $user->name)->send();
