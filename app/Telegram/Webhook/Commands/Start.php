@@ -31,11 +31,22 @@ class Start extends Webhook
             if ($user->telegram_id == $telegram_id)
             {
                 $text = $user->name.', добро пожаловать!';
-                KeyboardButton::remove();
-                Telegram::inlineButtons($telegram_id, 'Клавиатура', KeyboardButton::$buttons)->send();
+
+                $result =  Telegram::inlineButtons($telegram_id, $text, [
+                    'inline_keyboard' => [
+                        [
+                            [
+                                'text' => 'Кнопка 1',
+                                'callback_data' => '123'
+                            ]
+                        ]
+                    ]
+                ]);
+            } else {
+                $result =  Telegram::message($telegram_id, $text);
             }
         }
 
-       return Telegram::message($telegram_id, $text)->send();
+        return $result->send();
     }
 }
