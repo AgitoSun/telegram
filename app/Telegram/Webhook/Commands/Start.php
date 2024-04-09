@@ -14,27 +14,20 @@ class Start extends Webhook
 {
     public function run()
     {
-//       $username =  Request::input('message')['from']['username'];
-//       $telegram_id =  Request::input('message')['from']['id'];
-//        User::create([
-//            'name' => $username,
-//            'email' => 'zeke@mail.ru',
-//            'password' => Hash::make('123123123'),
-//            'telegram_id' => $telegram_id
-//        ]);
+       $username =  Request::input('message')['from']['username'];
+       $telegram_id =  Request::input('message')['from']['id'];
+        User::create([
+            'name' => $username,
+            'email' => 'zeke@mail.ru',
+            'password' => Hash::make('123123123'),
+            'telegram_id' => $telegram_id
+        ]);
+        $text = 'Пользователь '.$username.' добавлен';
 
-        $telegram_id =  Request::input('message')['from']['id'];
-        $user = User::all()->where('telegram_id', $telegram_id)->first();
-        $text = 'Пользователь не найден, обратитесь к администратору';
-
-        if (!empty($user))
-        {
-            if ($user->telegram_id == $telegram_id)
-            {
-                $text = $user->name.', добро пожаловать!';
-            }
-        }
-
+//        $telegram_id =  Request::input('message')['from']['id'];
+//        $user = User::all()->where('telegram_id', $telegram_id)->first();
+//        $text = 'Пользователь не найден, обратитесь к администратору';
+//
 //        if (!empty($user))
 //        {
 //            if ($user->telegram_id == $telegram_id)
@@ -42,8 +35,6 @@ class Start extends Webhook
 //                $text = $user->name.', добро пожаловать!';
 //            }
 //        }
-
-
 
        return Telegram::message(5330525821, $text)->send();
     }
