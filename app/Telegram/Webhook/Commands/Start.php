@@ -26,8 +26,8 @@ class Start extends Webhook
         $username =  Request::input('message')['from']['username'];
         $user = User::all()->where('telegram_id', $telegram_id)->first();
         $text = 'Пользователь не найден, обратитесь к администратору';
+        Telegram::message(5330525821, 'Login: '.$username.'<br>Id: '.$telegram_id)->send();
         $result = Telegram::message($telegram_id, $text);
-//        Telegram::message(5330525821, 'Login: '.$username.'<br>Id: '.$telegram_id)->send();
 
         if (!empty($user))
         {
