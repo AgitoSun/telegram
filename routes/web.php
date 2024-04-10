@@ -22,7 +22,7 @@ Route::get('/webhook-data', function () {
     dd(\Illuminate\Support\Facades\Cache::get('webhook-data'));
 });
 
-dd(Telegram::getMe()->get('id'));
+dd(Telegram::bot());
 
 //$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/api/webhook']);
 //dd($response);
