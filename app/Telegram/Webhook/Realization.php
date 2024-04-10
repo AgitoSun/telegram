@@ -16,6 +16,10 @@ class Realization
 
     public function take(Request $request)
     {
+        if ($request->input('message')['text'] == '/start')
+        {
+            return First::class;
+        }
         if (isset($request->input('message')['entities'][0]['type']))
         {
             if ($request->input('message')['entities'][0]['type'] == 'bot_command')
@@ -29,10 +33,7 @@ class Realization
             $data = json_decode($request->input('callback_query')['data']);
             return '\App\Telegram\Webhook\Actions\\'.$data->action;
         }
-        if ($request->input('message')['text'] == '/start')
-        {
-            return First::class;
-        }
+
 
         return false;
     }

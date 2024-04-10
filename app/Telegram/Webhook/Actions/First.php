@@ -4,7 +4,6 @@ namespace App\Telegram\Webhook\Actions;
 
 use App\Facades\Telegram;
 use App\Telegram\Webhook\Webhook;
-use Illuminate\Http\Request;
 
 class First extends Webhook
 {
