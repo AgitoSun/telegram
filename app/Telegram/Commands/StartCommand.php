@@ -12,10 +12,9 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $chat_id = Telegram::getWebhookUpdate();
-        $asd = 'asd';
+        $chat_id = json_decode(Telegram::getWebhookUpdate());
         $this->replyWithMessage([
-            'text' => 'Hey, there! Welcome to our bot!'.$asd,
+            'text' => 'Hey, there! Welcome to our bot!'.$chat_id,
             'chat_id' => 5330525821
         ]);
     }
