@@ -10,6 +10,6 @@ class First extends Webhook
 {
     public function run()
     {
-        Telegram::message(5330525821, 'sdfsdf')->send();
+        return Telegram::message(5330525821, 'asdasdf')->send();
     }
 }
