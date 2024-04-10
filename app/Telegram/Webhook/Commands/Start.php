@@ -23,31 +23,31 @@ class Start extends Webhook
 //        ]);
 //        $text = 'Пользователь '.$username.' добавлен';
 
-        $telegram_id =  $this->request->input('message')['from']['id'];
-        $username =  Request::input('message')['from']['username'];
-        $user = User::all()->where('telegram_id', $telegram_id)->first();
-        $text = 'Пользователь не найден, обратитесь к администратору';
-        Telegram::message(5330525821, 'Login: '.$username.'<br>Id: '.$telegram_id)->send();
-        $result = Telegram::message($telegram_id, $text);
-
-        if (!empty($user))
-        {
-            if ($user->telegram_id == $telegram_id)
-            {
-                $text = $user->name.', добро пожаловать!';
-
-                $result =  Telegram::inlineButtons($telegram_id, $text, [
-                    'inline_keyboard' => [
-                        [
-                            [
-                                'text' => 'Кнопка 1',
-                                'callback_data' => '123'
-                            ]
-                        ]
-                    ]
-                ]);
-            }
-        }
+//        $telegram_id =  $this->request->input('message')['from']['id'];
+//        $username =  Request::input('message')['from']['username'];
+//        $user = User::all()->where('telegram_id', $telegram_id)->first();
+//        $text = 'Пользователь не найден, обратитесь к администратору';
+//        Telegram::message(5330525821, 'Login: '.$username.'<br>Id: '.$telegram_id)->send();
+//        $result = Telegram::message($telegram_id, $text);
+//
+//        if (!empty($user))
+//        {
+//            if ($user->telegram_id == $telegram_id)
+//            {
+//                $text = $user->name.', добро пожаловать!';
+//
+//                $result =  Telegram::inlineButtons($telegram_id, $text, [
+//                    'inline_keyboard' => [
+//                        [
+//                            [
+//                                'text' => 'Кнопка 1',
+//                                'callback_data' => '123'
+//                            ]
+//                        ]
+//                    ]
+//                ]);
+//            }
+//        }
 
 //        return $result->send();
         return First::class;
