@@ -13,6 +13,11 @@ class StartCommand extends Command
     protected string $name = 'start';
     protected string $description = 'Start Command to get you started';
 
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
     public function handle()
     {
         $telegram_id =  $this->request->input('message')['from']['id'];
