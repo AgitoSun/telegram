@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/'.env('TELEGRAM_BOT_TOKEN').'/webhook', function () {
+Route::post('/api/webhook', function () {
     $update = Telegram::commandsHandler(true);
 
     // Commands handler method returns the Update object.

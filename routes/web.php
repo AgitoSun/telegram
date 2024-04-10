@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 
-$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/'.env('TELEGRAM_BOT_TOKEN').'/webhook']);
+$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/api/webhook']);
 dd($response);
 
 $telegram = Telegram::bot();
