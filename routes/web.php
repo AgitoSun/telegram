@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 
 
-$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/api/webhook']);
-dd($response);
+//$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/api/webhook']);
+//dd($response);
 
-$telegram = Telegram::bot();
+//$telegram = Telegram::bot();
 
 //$response = $telegram->sendMessage([
 //    'chat_id' => '5330525821',

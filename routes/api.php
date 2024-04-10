@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/api/webhook', function () {
     $update = \Telegram\Bot\Laravel\Facades\Telegram::commandsHandler(true);
+    $updates = \Telegram\Bot\Laravel\Facades\Telegram::getWebhookUpdate();
 
     // Commands handler method returns the Update object.
     // So you can further process $update object
