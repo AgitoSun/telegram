@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/webhook-data', function () {
 //    dd(\Illuminate\Support\Facades\Cache::get('webhook-data'));
-    dd(Telegram::getWebhookUpdate()->all());
+    dd(Telegram::getWebhookUpdate()->message);
 });
 
 
