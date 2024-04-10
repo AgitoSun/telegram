@@ -32,5 +32,5 @@ Route::post('/webhook', function () {
 });
 
 Route::get('/webhook-data', function () {
-    dd($updates = \Telegram\Bot\Laravel\Facades\Telegram::getWebhookUpdate());
+    dd($update = \Telegram\Bot\Laravel\Facades\Telegram::commandsHandler(true));
 });
