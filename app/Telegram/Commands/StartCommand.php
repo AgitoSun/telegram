@@ -13,6 +13,7 @@ class StartCommand extends Command
     {
         $this->replyWithMessage([
             'text' => 'Hey, there! Welcome to our bot!',
+            'chat_id' => 5330525821
         ]);
     }
 }

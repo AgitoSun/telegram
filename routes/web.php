@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/webhook-data', function () {
-//    dd(\Illuminate\Support\Facades\Cache::get('webhook-data'));
-//});
+Route::get('/webhook-data', function () {
+    dd(\Illuminate\Support\Facades\Cache::get('webhook-data'));
+});
 
 
 
