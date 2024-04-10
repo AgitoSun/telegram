@@ -27,7 +27,7 @@ Route::post('/webhook', function () {
     // Commands handler method returns the Update object.
     // So you can further process $update object
     // to however you want.
-
+    dd($updates = \Telegram\Bot\Laravel\Facades\Telegram::getWebhookUpdate());
     return 'ok';
 });
 
