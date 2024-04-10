@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Request;
 
 class Start extends Webhook
 {
-    public function run()
+    public function run(): string
     {
 //       $username =  Request::input('message')['from']['username'];
 //       $telegram_id =  Request::input('message')['from']['id'];
