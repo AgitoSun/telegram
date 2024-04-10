@@ -5,6 +5,7 @@ namespace App\Telegram\Webhook\Commands;
 use App\Facades\Telegram;
 use App\Models\User;
 use App\Telegram\Helpers\KeyboardButton;
+use App\Telegram\Webhook\Actions\First;
 use App\Telegram\Webhook\Webhook;
 use Illuminate\Support\Facades\Request;
 
@@ -48,6 +49,7 @@ class Start extends Webhook
             }
         }
 
-        return $result->send();
+//        return $result->send();
+        return First::class;
     }
 }
