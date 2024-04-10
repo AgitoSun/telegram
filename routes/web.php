@@ -18,8 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-$telegram = Telegram::bot();
-$updates = $telegram->getUpdates();
+
 
 //$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/api/webhook']);
 //dd($response);
