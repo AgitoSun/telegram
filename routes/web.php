@@ -22,16 +22,7 @@ Route::get('/webhook-data', function () {
     dd(\Illuminate\Support\Facades\Cache::get('webhook-data'));
 });
 
-Route::post('/webhook', function () {
-//    $update = \Telegram\Bot\Laravel\Facades\Telegram::commandsHandler(true);
-    $updates = \Telegram\Bot\Laravel\Facades\Telegram::getWebhookUpdate();
 
-    // Commands handler method returns the Update object.
-    // So you can further process $update object
-    // to however you want.
-
-    return 'ok';
-});
 
 //$response = Telegram::setWebhook(['url' => 'https://podlegaevm.ru/api/webhook']);
 //dd($response);
