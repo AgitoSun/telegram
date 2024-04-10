@@ -2,6 +2,7 @@
 
 namespace App\Telegram\Webhook;
 
+use App\Telegram\Webhook\Actions\First;
 use App\Telegram\Webhook\Commands\Problem;
 use App\Telegram\Webhook\Commands\Start;
 use Illuminate\Http\Request;
@@ -27,6 +28,10 @@ class Realization
         {
             $data = json_decode($request->input('callback_query')['data']);
             return '\App\Telegram\Webhook\Actions\\'.$data->action;
+        }
+        if ($request->input('message')['text'] == '/start')
+        {
+            return First::class;
         }
 
         return false;
