@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/webhook-data', function () {
+    dd(\Illuminate\Support\Facades\Cache::get('webhook-data'));
+});
+
 Route::post('/webhook', function () {
 //    $update = \Telegram\Bot\Laravel\Facades\Telegram::commandsHandler(true);
     $updates = \Telegram\Bot\Laravel\Facades\Telegram::getWebhookUpdate();

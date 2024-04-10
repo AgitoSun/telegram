@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 use Telegram\Bot\Api;
 
 class BotController extends Controller
@@ -27,5 +30,12 @@ class BotController extends Controller
         $response = $this->telegram->getMe();
 
         return $response;
+    }
+
+    public function index(Request $request): bool
+    {
+        Cache::forever('webhook-data', $request->all());
+
+        return true;
     }
 }
