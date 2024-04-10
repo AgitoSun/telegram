@@ -15,12 +15,11 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $chat_id = json_decode(Telegram::getUpdates()['message']);
+//        $telegram_id =  $this->request->input('message')['from']['id'];
 
-        $telegram_id =  $this->request->input('message')['from']['id'];
         $this->replyWithMessage([
             'text' => 'Hey, there! Welcome to our bot!',
-            'chat_id' => $telegram_id
+            'chat_id' => 5330525821
         ]);
     }
 }
