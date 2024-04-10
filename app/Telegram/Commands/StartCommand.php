@@ -15,7 +15,7 @@ class StartCommand extends Command
         $chat_id = Telegram::getMe()->
         $this->replyWithMessage([
             'text' => 'Hey, there! Welcome to our bot!',
-            'chat_id' => 'CHAT_ID'
+            'chat_id' => 5330525821
         ]);
     }
 }
