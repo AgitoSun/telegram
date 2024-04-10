@@ -14,7 +14,7 @@ class StartCommand extends Command
     {
         $chat_id = json_decode(Telegram::getUpdates()['message']);
         $this->replyWithMessage([
-            'text' => 'Hey, there! Welcome to our bot!'.$chat_id,
+            'text' => 'Hey, there! Welcome to our bot!',
             'chat_id' => 5330525821
         ]);
     }
