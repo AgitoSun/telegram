@@ -13,6 +13,6 @@ class First extends Webhook
         $telegram_id =  $this->request->input('message')['from']['id'];
         $username =  Request::input('message')['from']['username'];
 
-        return Telegram::message(5330525821, 'Login: '.$username.'<br>Id: '.$telegram_id)->send();
+        return Telegram::message(5330525821, 'sdfsdf')->send();
     }
 }
