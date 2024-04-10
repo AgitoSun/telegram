@@ -2,7 +2,6 @@
 
 namespace App\Telegram\Webhook;
 
-use App\Telegram\Webhook\Actions\First;
 use App\Telegram\Webhook\Commands\Problem;
 use App\Telegram\Webhook\Commands\Start;
 use Illuminate\Http\Request;
@@ -16,10 +15,6 @@ class Realization
 
     public function take(Request $request)
     {
-        if ($request->input('message')['text'] == '/start')
-        {
-            return First::class;
-        }
         if (isset($request->input('message')['entities'][0]['type']))
         {
             if ($request->input('message')['entities'][0]['type'] == 'bot_command')
