@@ -15,9 +15,10 @@ class StartCommand extends Command
     {
         $update = $this->getUpdate();
         $user_id = $update->getMessage()->from->id;
+        $user_name = $update->getMessage()->from->username;
 
         $this->replyWithMessage([
-            'text' => 'Hey, there! Welcome to our bot!',
+            'text' => 'Hey '.$user_name.', there! Welcome to our bot!',
             'chat_id' => $user_id
         ]);
     }
