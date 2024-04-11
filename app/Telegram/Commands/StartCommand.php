@@ -36,6 +36,8 @@ namespace App\Telegram\Commands;
 
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
+use Telegram\Bot\Keyboard\Keyboard;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 /**
  * This command can be triggered in two ways:
@@ -51,37 +53,34 @@ class StartCommand extends Command
 
     public function handle()
     {
-        # username from Update object to be used as fallback.
-        $fallbackUsername = $this->getUpdate()->getMessage()->from->username;
+        $reply_markup = Keyboard::make()
+            ->setResizeKeyboard(true)
+            ->setOneTimeKeyboard(true)
+            ->row([
+                Keyboard::button('1'),
+                Keyboard::button('2'),
+                Keyboard::button('3'),
+            ])
+            ->row([
+                Keyboard::button('4'),
+                Keyboard::button('5'),
+                Keyboard::button('6'),
+            ])
+            ->row([
+                Keyboard::button('7'),
+                Keyboard::button('8'),
+                Keyboard::button('9'),
+            ])
+            ->row([
+                Keyboard::button('0'),
+            ]);
 
-        # Get the username argument if the user provides,
-        # (optional) fallback to username from Update object as the default.
-        $username = $this->argument(
-            'username',
-            $fallbackUsername
-        );
-
-        $this->replyWithMessage([
-            'text' => "Hello {$username}! Welcome to our bot, Here are our available commands:"
+        $response = Telegram::sendMessage([
+            'chat_id' => 'CHAT_ID',
+            'text' => 'Hello World',
+            'reply_markup' => $reply_markup
         ]);
 
-        # This will update the chat status to "typing..."
-        $this->replyWithChatAction(['action' => Actions::TYPING]);
-
-        # Get all the registered commands.
-        $commands = $this->getTelegram()->getCommands();
-
-        $response = '';
-        foreach ($commands as $name => $command) {
-            $response .= sprintf('/%s - %s' . PHP_EOL, $name, $command->getDescription());
-        }
-
-        $this->replyWithMessage(['text' => $response]);
-
-        if($this->argument('age', 0) >= 18) {
-            $this->replyWithMessage(['text' => 'Congrats, You are eligible to buy premimum access to our membership!']);
-        } else {
-            $this->replyWithMessage(['text' => 'Sorry, you are not eligible to access premium membership yet!']);
-        }
+        $messageId = $response->getMessageId();
     }
 }
