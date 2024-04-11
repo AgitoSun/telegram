@@ -34,6 +34,7 @@
 
 namespace App\Telegram\Commands;
 
+use App\Telegram\Actions\StartAction;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Keyboard\Keyboard;
@@ -87,9 +88,6 @@ class StartCommand extends Command
 
         $messageId = $response->getMessageId();
 
-        Telegram::sendMessage([
-            'chat_id' => $user_id,
-            'text' => $user_text
-        ]);
+        return StartAction::class;
     }
 }
