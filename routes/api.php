@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/webhook', [\App\Http\Controllers\BotController::class, 'index']);
+Route::post('webhook', [\App\Http\Controllers\BotController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::post('/webhook', function () {
-    $update = \Telegram\Bot\Laravel\Facades\Telegram::commandsHandler(true);
+    $update = Telegram::commandsHandler(true);
 
     // Commands handler method returns the Update object.
     // So you can further process $update object
