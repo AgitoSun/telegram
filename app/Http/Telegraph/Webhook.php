@@ -18,14 +18,15 @@ class Webhook extends WebhookHandler
         $this->chat
             ->message('Поиграем?')
             ->keyboard(Keyboard::make()->buttons([
-                Button::make('-1-')->action(Game::class)->param('value', 1),
+                Button::make('-1-')->action('game')->param('value', 1),
                 Button::make('-2-')->action('game')->param('value', 2),
                 Button::make('-3-')->action('game')->param('value', 3),
             ]))->send();
     }
 
-//    public function game()
-//    {
-//        $this->chat->html('Ответ принят')->send();
-//    }
+    public function game()
+    {
+        $value = $this->data->get('value');
+        $this->chat->html("Нажата кнопка: {$value}")->send();
+    }
 }
