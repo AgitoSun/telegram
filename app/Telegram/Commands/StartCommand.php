@@ -75,11 +75,16 @@ class StartCommand extends Command
                 Keyboard::button('0'),
             ]);
 
-        $response = Telegram::sendMessage([
+//        $response = Telegram::sendMessage([
+//            'text' => 'Hello World',
+//            'reply_markup' => $reply_markup
+//        ]);
+
+        $this->replyWithMessage([
             'text' => 'Hello World',
             'reply_markup' => $reply_markup
         ]);
 
-        $messageId = $response->getMessageId();
+//        $messageId = $response->getMessageId();
     }
 }
