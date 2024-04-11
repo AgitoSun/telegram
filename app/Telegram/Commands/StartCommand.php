@@ -9,7 +9,7 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 class StartCommand extends Command
 {
     protected string $name = 'start';
-    protected array $aliases = ['subscribe'];
+    protected string $pattern = '{username}';
     protected string $description = 'Start Command to get you started';
 
     public function handle()
@@ -22,8 +22,17 @@ class StartCommand extends Command
         $chat_id = $update->getMessage()->getChat()->getId();
         $user_name = $update->getMessage()->getChat()->getUsername();
 
+        $fallbackUsername = $this->getUpdate()->getMessage()->from->username;
+
+        # Get the username argument if the user provides,
+        # (optional) fallback to username from Update object as the default.
+        $username = $this->argument(
+            'username',
+            $fallbackUsername
+        );
+
         $this->replyWithMessage([
-            'text' => 'Hey '.$user_name.', there! Welcome to our bot!',
+            'text' => "Hello {$username}! Welcome to our bot :)",
             'chat_id' => $chat_id
         ]);
     }
