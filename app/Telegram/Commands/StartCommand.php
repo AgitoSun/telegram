@@ -76,7 +76,6 @@ class StartCommand extends Command
             ]);
 
         $response = Telegram::sendMessage([
-            'chat_id' => 'CHAT_ID',
             'text' => 'Hello World',
             'reply_markup' => $reply_markup
         ]);
