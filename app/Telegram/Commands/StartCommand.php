@@ -22,13 +22,6 @@ class StartCommand extends Command
         $chat_id = $this->getUpdate()->getMessage()->from->id;
         $user_name = $this->getUpdate()->getMessage()->from->username;
 
-        # Get the username argument if the user provides,
-        # (optional) fallback to username from Update object as the default.
-        $user_name = $this->argument(
-            'username',
-            $user_name
-        );
-
         $this->replyWithMessage([
             'text' => "Hello {$user_name}! Welcome to our bot :)",
             'chat_id' => $chat_id
