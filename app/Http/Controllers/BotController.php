@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Telegram\Bot\Api;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class BotController extends Controller
 {
@@ -32,9 +33,9 @@ class BotController extends Controller
         return $response;
     }
 
-    public function index(Request $request): bool
+    public function index(Request $request, Telegram $telegram): bool
     {
-        Cache::forever('webhook-data', $request->all());
+        Cache::forever('webhook-data', $telegram->getWebhookUpdate());
 
         return true;
     }
