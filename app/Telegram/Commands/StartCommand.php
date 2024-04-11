@@ -24,7 +24,7 @@ class StartCommand extends Command
 
         $this->replyWithMessage([
             'text' => "Hello {$user_name}! Welcome to our bot :)",
-            'chat_id' => $chat_id
+
         ]);
     }
 }
