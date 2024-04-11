@@ -84,7 +84,7 @@ class StartCommand extends Command
             'reply_markup' => $reply_markup
         ]);
 
-        $messageId = $response->getMessageText();
+        $messageId = $response->getMessageId();
 
         Telegram::sendMessage([
             'chat_id' => $user_id,
