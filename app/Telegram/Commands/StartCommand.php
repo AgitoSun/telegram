@@ -13,11 +13,9 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $telegram_id =  Telegram::getUpdates()['message']['from']['id'];
-
         $this->replyWithMessage([
             'text' => 'Hey, there! Welcome to our bot!',
-            'chat_id' => $telegram_id
+            'chat_id' => 5330525821
         ]);
     }
 }
