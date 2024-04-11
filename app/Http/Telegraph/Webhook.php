@@ -22,4 +22,9 @@ class Webhook extends WebhookHandler
                 Button::make('-3-')->action('game')->param('value', 3),
             ]))->send();
     }
+
+    public function game()
+    {
+        $this->chat->html('Ответ принят')->send();
+    }
 }
