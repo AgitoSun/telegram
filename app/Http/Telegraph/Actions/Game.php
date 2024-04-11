@@ -2,9 +2,9 @@
 
 namespace App\Http\Telegraph\Actions;
 
-use App\Http\Telegraph\Webhook;
+use DefStudio\Telegraph\Handlers\WebhookHandler;
 
-class Game extends Webhook
+class Game extends WebhookHandler
 {
     public function start()
     {
