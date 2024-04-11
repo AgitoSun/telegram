@@ -28,7 +28,7 @@ return [
          *
          * For reference, see https://defstudio.github.io/telegraph/webhooks/overview
          */
-        'handler' => DefStudio\Telegraph\Handlers\EmptyWebhookHandler::class,
+        'handler' => \App\Http\Telegraph\Webhook::class,
 
         /*
          * Middleware to be applied to the webhook route
