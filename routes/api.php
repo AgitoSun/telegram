@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('webhook', [\App\Http\Controllers\BotController::class, 'index']);
+Route::post('/webhook', [\App\Http\Controllers\BotController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
