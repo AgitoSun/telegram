@@ -19,7 +19,7 @@ class StartCommand extends Command
 //        $user_name = $update->getMessage()->from->username;
 
         $update = Telegram::getWebhookUpdate();
-        $chat_id = $update->getMessage()->getChat()->getId();
+        $chat_id = $this->getUpdate()->getMessage()->from->id;
         $user_name = $update->getMessage()->getChat()->getUsername();
 
         $fallbackUsername = $this->getUpdate()->getMessage()->from->username;
