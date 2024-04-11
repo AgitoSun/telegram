@@ -17,9 +17,9 @@ class StartCommand extends Command
 //        $user_id = $update->getMessage()->from->id;
 //        $user_name = $update->getMessage()->from->username;
 
-        $updates = Telegram::getWebhookUpdate();
-        $chat_id = $updates->getMessage()->getChat()->getId();
-        $user_name = $updates->getMessage()->getChat()->getUsername();
+        $update = Telegram::getWebhookUpdate();
+        $chat_id = $update->getMessage()->getChat()->getId();
+        $user_name = $update->getMessage()->getChat()->getUsername();
 
         $this->replyWithMessage([
             'text' => 'Hey '.$user_name.', there! Welcome to our bot!',
