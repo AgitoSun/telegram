@@ -55,6 +55,7 @@ class StartCommand extends Command
     {
         $update = $this->getUpdate();
         $user_id = $update->getMessage()->from->id;
+        $user_text = $update->getMessage()->text;
 
         $reply_markup = Keyboard::make()
             ->setResizeKeyboard(true)
@@ -86,9 +87,9 @@ class StartCommand extends Command
 
         $messageId = $response->getMessageId();
 
-        Telegram::sendChatAction([
+        Telegram::sendMessage([
             'chat_id' => $user_id,
-            'action' => 'upload_photo'
+            'text' => $user_text
         ]);
     }
 }
