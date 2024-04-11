@@ -16,8 +16,6 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 |
 */
 
-Route::post('webhook', [\App\Http\Controllers\BotController::class, 'index']);
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

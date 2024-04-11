@@ -32,11 +32,4 @@ class BotController extends Controller
 
         return $response;
     }
-
-    public function index(Request $request): bool
-    {
-        Cache::forever('webhook-data', '123123123');
-
-        return true;
-    }
 }
