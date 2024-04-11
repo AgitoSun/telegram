@@ -6,8 +6,9 @@ use App\Http\Telegraph\Webhook;
 
 class Game extends Webhook
 {
-    public function game()
+    public function start()
     {
-        $this->chat->html('Ответ принят')->send();
+        $value = $this->data->get('value');
+        $this->chat->html("Нажата кнопка: {$value}")->send();
     }
 }
