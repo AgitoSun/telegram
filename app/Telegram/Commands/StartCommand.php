@@ -53,6 +53,9 @@ class StartCommand extends Command
 
     public function handle()
     {
+        $update = $this->getUpdate();
+        $user_id = $update->getMessage()->from->id;
+
         $reply_markup = Keyboard::make()
             ->setResizeKeyboard(true)
             ->setOneTimeKeyboard(true)
@@ -75,16 +78,17 @@ class StartCommand extends Command
                 Keyboard::button('0'),
             ]);
 
-//        $response = Telegram::sendMessage([
-//            'text' => 'Hello World',
-//            'reply_markup' => $reply_markup
-//        ]);
-
-        $this->replyWithMessage([
+        $response = Telegram::sendMessage([
+            'chat_id' => $user_id,
             'text' => 'Hello World',
             'reply_markup' => $reply_markup
         ]);
 
-//        $messageId = $response->getMessageId();
+//        $this->replyWithMessage([
+//            'text' => 'Hello World',
+//            'reply_markup' => $reply_markup
+//        ]);
+
+        $messageId = $response->getMessageId();
     }
 }
