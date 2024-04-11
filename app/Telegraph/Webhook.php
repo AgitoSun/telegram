@@ -28,6 +28,6 @@ class Webhook extends WebhookHandler
     {
 //        $value = $this->data->get('value');
 //        $this->chat->html("Нажата кнопка: {$value}")->send();
-        return Game::class;
+        return '\App\Telegraph\Actions\\Game';
     }
 }
