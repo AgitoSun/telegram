@@ -86,9 +86,10 @@ class StartCommand extends Command
 
         $messageId = $response->getMessageId();
 
-        Telegram::sendMessage([
+        Telegram::forwardMessage([
             'chat_id' => $user_id,
-            'text' => $messageId
+            'from_chat_id' => $user_id,
+            'message_id' => $messageId
         ]);
     }
 }
