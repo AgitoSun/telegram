@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Telegraph;
+namespace App\Telegraph;
 
-use App\Http\Telegraph\Actions\Game;
+use App\Telegraph\Actions\Game;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
