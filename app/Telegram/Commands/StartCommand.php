@@ -13,13 +13,17 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $update = $this->getUpdate();
-        $user_id = $update->getMessage()->from->id;
-        $user_name = $update->getMessage()->from->username;
+//        $update = $this->getUpdate();
+//        $user_id = $update->getMessage()->from->id;
+//        $user_name = $update->getMessage()->from->username;
+
+        $updates = Telegram::getWebhookUpdate();
+        $chat_id = $updates->getMessage()->getChat()->getId();
+        $user_name = $updates->getMessage()->getChat()->getUsername();
 
         $this->replyWithMessage([
             'text' => 'Hey '.$user_name.', there! Welcome to our bot!',
-            'chat_id' => $user_id
+            'chat_id' => $chat_id
         ]);
     }
 }
