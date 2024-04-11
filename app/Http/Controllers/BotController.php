@@ -33,10 +33,10 @@ class BotController extends Controller
         return $response;
     }
 
-    public function index(Request $request, Telegram $telegram)
+    public function index(Request $request): bool
     {
-        Cache::forever('webhook-data', '123');
+        Cache::forever('webhook-data', $request->all());
 
-//        return true;
+        return true;
     }
 }
