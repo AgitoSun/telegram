@@ -2,11 +2,12 @@
 
 namespace App\Telegraph\Actions;
 
+use App\Telegraph\Webhook;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
 
-class Game extends WebhookHandler
+class Game extends Webhook
 {
 //    public function start()
 //    {
