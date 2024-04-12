@@ -27,35 +27,23 @@ class Webhook extends WebhookHandler
 //        $this->reply('sorry man, I failed');
 //    }
 
-//    public function start(): void
-//    {
-//        $qwe = Button::make('Тех. поддержка')->action('support');
-//        $this->chat->html(print_r($qwe, true))->send();
-////
-////        sleep(1);
-//
-//        $this->chat
-//            ->message('Что необходимо?')
-//            ->keyboard(Keyboard::make()->buttons([
-//                Button::make('Тех. поддержка')->action('support'),
-//                Button::make('Закупка')->action('qwe'),
-//            ]))->send();
-//    }
-//
-//    public function support(Game $game): void
-//    {
-//        $game->index($this->chat);
-////        $value = $this->data->get('action');
-////        return '\App\Telegraph\Actions\\'.$value;
-////        return Game::class;
-//
-////        $this->chat
-////            ->message('Какая у вас проблема?')
-////            ->keyboard(Keyboard::make()->buttons([
-////                Button::make('Тех. поддержка')->action('support'),
-////                Button::make('Закупка')->action('purchase'),
-////            ]))->send();
-//    }
+    public function start(): void
+    {
+        $qwe = Button::make('Тех. поддержка')->action('support');
+        $this->chat->html(print_r($qwe, true))->send();
+
+        $this->chat
+            ->message('Что необходимо?')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make('Тех. поддержка')->action('support'),
+                Button::make('Закупка')->action('qwe'),
+            ]))->send();
+    }
+
+    public function support(Game $game): void
+    {
+        $game->index($this->chat);
+    }
 
 //    protected function handleChatMessage(Stringable $text): void
 //    {
