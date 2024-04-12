@@ -11,19 +11,19 @@ use Illuminate\Http\Request;
 
 class Webhook extends WebhookHandler
 {
-//    public function start()
-//    {
-////        $this->chat->html('Привет')->send();
-////
-////        sleep(1);
+    public function start()
+    {
+//        $this->chat->html('Привет')->send();
 //
-//        $this->chat
-//            ->message('Что необходимо?')
-//            ->keyboard(Keyboard::make()->buttons([
-//                Button::make('Тех. поддержка')->action('support'),
-//                Button::make('Закупка')->action('purchase'),
-//            ]))->send();
-//    }
+//        sleep(1);
+
+        $this->chat
+            ->message('Что необходимо?')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make('Тех. поддержка')->action('support'),
+                Button::make('Закупка')->action('purchase'),
+            ]))->send();
+    }
 //
 //    public function support()
 //    {
