@@ -27,8 +27,8 @@ class Webhook extends WebhookHandler
 //        $this->reply('sorry man, I failed');
 //    }
 
-//    public function start(): void
-//    {
+    public function start(): void
+    {
 //        $qwe = Button::make('Тех. поддержка')->action('support');
 //        $this->chat->html(print_r($qwe, true))->send();
 ////
@@ -40,7 +40,7 @@ class Webhook extends WebhookHandler
 //                Button::make('Тех. поддержка')->action('support'),
 //                Button::make('Закупка')->action('qwe'),
 //            ]))->send();
-//    }
+    }
 //
 //    public function support(Game $game): void
 //    {
