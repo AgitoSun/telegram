@@ -20,7 +20,7 @@ class Game extends WebhookHandler
 //        $this->chat->html("Нажата кнопка")->send();
 //    }
 
-    public function index($chat)
+    public static function index($chat): void
     {
         $chat->html("Нажата кнопка")->send();
     }

@@ -37,7 +37,7 @@ class Webhook extends WebhookHandler
             ->message('Что необходимо?')
             ->keyboard(Keyboard::make()->buttons([
                 Button::make('Тех. поддержка')->action('support'),
-                Button::make('Закупка')->action('purchase'),
+                Button::make('Закупка')->action(Game::index($this->chat)),
             ]))->send();
     }
 //
