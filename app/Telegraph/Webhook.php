@@ -11,6 +11,17 @@ use Illuminate\Http\Request;
 
 class Webhook extends WebhookHandler
 {
+    protected function onFailure(Throwable $throwable): void
+    {
+        if ($throwable instanceof NotFoundHttpException) {
+            throw $throwable;
+        }
+
+        report($throwable);
+
+        $this->reply('sorry man, I failed');
+    }
+
     public function start()
     {
 //        $this->chat->html('Привет')->send();
