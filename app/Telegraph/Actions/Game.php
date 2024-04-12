@@ -17,7 +17,7 @@ class Game extends Webhook
 
     public function handle(Request $request, TelegraphBot $bot): void
     {
-        $value = $this->data->get('value');
-        $this->chat->html("Нажата кнопка: {$value}")->send();
+//        $value = $this->data->get('value');
+        $this->chat->html("Нажата кнопка")->send();
     }
 }

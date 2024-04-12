@@ -44,8 +44,8 @@ class Webhook extends WebhookHandler
     public function support()
     {
         $value = $this->data->get('action');
+        return '\App\Telegraph\Actions\\'.$value;
 
-        $this->chat->message($value)->send();
 //        $this->chat
 //            ->message('Какая у вас проблема?')
 //            ->keyboard(Keyboard::make()->buttons([
