@@ -29,7 +29,7 @@ class Webhook extends WebhookHandler
 
     public function start(): void
     {
-        $qwe = Button::make('Тех. поддержка')->action('support');
+        $qwe = Button::make('Тех. поддержка')->action('support')->width(5);
         $this->chat->html(print_r($qwe, true))->send();
 //
 //        sleep(1);
