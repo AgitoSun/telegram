@@ -44,7 +44,8 @@ class Webhook extends WebhookHandler
     public function support()
     {
         $value = $this->data->get('action');
-        return '\App\Telegraph\Actions\\'.$value;
+//        return '\App\Telegraph\Actions\\'.$value;
+        return Game::class;
 
 //        $this->chat
 //            ->message('Какая у вас проблема?')

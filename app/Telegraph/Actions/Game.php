@@ -7,7 +7,7 @@ use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
 
-class Game extends Webhook
+class Game extends WebhookHandler
 {
 //    public function start()
 //    {
@@ -15,8 +15,8 @@ class Game extends Webhook
 //        $this->chat->html("Нажата кнопка: {$value}")->send();
 //    }
 
-    public function chatid(): void
+    public function handle(Request $request, TelegraphBot $bot): void
     {
-        parent::chatid();
+        $this->chat->html("Нажата кнопка")->send();
     }
 }
