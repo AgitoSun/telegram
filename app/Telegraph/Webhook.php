@@ -11,23 +11,32 @@ class Webhook extends WebhookHandler
 {
     public function start()
     {
-        $this->chat->html('Привет')->send();
-
-        sleep(1);
+//        $this->chat->html('Привет')->send();
+//
+//        sleep(1);
 
         $this->chat
-            ->message('Поиграем?')
+            ->message('Что необходимо?')
             ->keyboard(Keyboard::make()->buttons([
-                Button::make('-1-')->action(Game::class)->param('value', 1),
-                Button::make('-2-')->action('game')->param('value', 2),
-                Button::make('-3-')->action('game')->param('value', 3),
+                Button::make('Тех. поддержка')->action('support'),
+                Button::make('Закупка')->action('purchase'),
             ]))->send();
     }
 
-    public function game()
+    public function support()
     {
 //        $value = $this->data->get('value');
-//        $this->chat->html("Нажата кнопка: {$value}")->send();
-        return Game::class;
+        $this->chat
+            ->message('Какая у вас проблема?')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make('Тех. поддержка')->action('support'),
+                Button::make('Закупка')->action('purchase'),
+            ]))->send();
+    }
+
+    protected function handleChatMessage(Stringable $text): void
+    {
+        // in this example, a received message is sent back to the chat
+        $this->chat->html("Received: $text")->send();
     }
 }
