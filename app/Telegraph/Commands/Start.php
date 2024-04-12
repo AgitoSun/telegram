@@ -3,10 +3,11 @@
 namespace App\Telegraph\Commands;
 
 use App\Telegraph\Webhook;
+use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
 
-class Start extends Webhook
+class Start extends WebhookHandler
 {
     public function start(): void
     {
