@@ -41,9 +41,9 @@ class Webhook extends WebhookHandler
             ]))->send();
     }
 //
-    public function support(Game $game): Game
+    public function support(Game $game): void
     {
-        return $game;
+        $game->handle($this->request, $this->bot);
 //        $value = $this->data->get('action');
 //        return '\App\Telegraph\Actions\\'.$value;
 //        return Game::class;
