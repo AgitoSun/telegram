@@ -15,7 +15,12 @@ class Game extends WebhookHandler
 //        $this->chat->html("Нажата кнопка: {$value}")->send();
 //    }
 
-    public function handle(Request $request, TelegraphBot $bot): void
+//    public function handle(Request $request, TelegraphBot $bot): void
+//    {
+//        $this->chat->html("Нажата кнопка")->send();
+//    }
+
+    public function index()
     {
         $this->chat->html("Нажата кнопка")->send();
     }
