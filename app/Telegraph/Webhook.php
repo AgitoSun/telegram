@@ -41,11 +41,12 @@ class Webhook extends WebhookHandler
             ]))->send();
     }
 //
-    public function support()
+    public function support(Game $game): Game
     {
-        $value = $this->data->get('action');
+        return $game;
+//        $value = $this->data->get('action');
 //        return '\App\Telegraph\Actions\\'.$value;
-        return Game::class;
+//        return Game::class;
 
 //        $this->chat
 //            ->message('Какая у вас проблема?')
