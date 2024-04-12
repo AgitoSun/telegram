@@ -13,19 +13,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Webhook extends WebhookHandler
 {
-    /**
-     * @throws \Throwable
-     */
-    protected function onFailure(Throwable|\Throwable $throwable): void
-    {
-        if ($throwable instanceof NotFoundHttpException) {
-            throw $throwable;
-        }
-
-        report($throwable);
-
-        $this->reply('sorry man, I failed');
-    }
+//    /**
+//     * @throws \Throwable
+//     */
+//    protected function onFailure(Throwable|\Throwable $throwable): void
+//    {
+//        if ($throwable instanceof NotFoundHttpException) {
+//            throw $throwable;
+//        }
+//
+//        report($throwable);
+//
+//        $this->reply('sorry man, I failed');
+//    }
 
     public function start(): void
     {
