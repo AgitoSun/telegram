@@ -29,7 +29,8 @@ class Webhook extends WebhookHandler
 
     public function start(): void
     {
-//        $this->chat->html('Привет')->send();
+        $qwe = Button::make('Тех. поддержка')->action('support');
+        $this->chat->html(print_r($qwe, true))->send();
 //
 //        sleep(1);
 
@@ -37,7 +38,7 @@ class Webhook extends WebhookHandler
             ->message('Что необходимо?')
             ->keyboard(Keyboard::make()->buttons([
                 Button::make('Тех. поддержка')->action('support'),
-                Button::make('Закупка')->action(Game::index($this->chat)),
+                Button::make('Закупка')->action('qwe'),
             ]))->send();
     }
 //
