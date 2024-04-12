@@ -8,10 +8,15 @@ use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
+use PHPUnit\Event\Code\Throwable;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Webhook extends WebhookHandler
 {
-    protected function onFailure(Throwable $throwable): void
+    /**
+     * @throws \Throwable
+     */
+    protected function onFailure(Throwable|\Throwable $throwable): void
     {
         if ($throwable instanceof NotFoundHttpException) {
             throw $throwable;
@@ -22,7 +27,7 @@ class Webhook extends WebhookHandler
         $this->reply('sorry man, I failed');
     }
 
-    public function start()
+    public function start(): void
     {
 //        $this->chat->html('Привет')->send();
 //
