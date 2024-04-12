@@ -41,16 +41,18 @@ class Webhook extends WebhookHandler
             ]))->send();
     }
 //
-//    public function support()
-//    {
-////        $value = $this->data->get('value');
+    public function support()
+    {
+        $value = $this->data->get('action');
+
+        $this->chat->message($value)->send();
 //        $this->chat
 //            ->message('Какая у вас проблема?')
 //            ->keyboard(Keyboard::make()->buttons([
 //                Button::make('Тех. поддержка')->action('support'),
 //                Button::make('Закупка')->action('purchase'),
 //            ]))->send();
-//    }
+    }
 
 //    protected function handleChatMessage(Stringable $text): void
 //    {
