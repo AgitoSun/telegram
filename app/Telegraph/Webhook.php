@@ -9,30 +9,30 @@ use DefStudio\Telegraph\Keyboard\Keyboard;
 
 class Webhook extends WebhookHandler
 {
-    public function start()
-    {
-//        $this->chat->html('Привет')->send();
+//    public function start()
+//    {
+////        $this->chat->html('Привет')->send();
+////
+////        sleep(1);
 //
-//        sleep(1);
-
-        $this->chat
-            ->message('Что необходимо?')
-            ->keyboard(Keyboard::make()->buttons([
-                Button::make('Тех. поддержка')->action('support'),
-                Button::make('Закупка')->action('purchase'),
-            ]))->send();
-    }
-
-    public function support()
-    {
-//        $value = $this->data->get('value');
-        $this->chat
-            ->message('Какая у вас проблема?')
-            ->keyboard(Keyboard::make()->buttons([
-                Button::make('Тех. поддержка')->action('support'),
-                Button::make('Закупка')->action('purchase'),
-            ]))->send();
-    }
+//        $this->chat
+//            ->message('Что необходимо?')
+//            ->keyboard(Keyboard::make()->buttons([
+//                Button::make('Тех. поддержка')->action('support'),
+//                Button::make('Закупка')->action('purchase'),
+//            ]))->send();
+//    }
+//
+//    public function support()
+//    {
+////        $value = $this->data->get('value');
+//        $this->chat
+//            ->message('Какая у вас проблема?')
+//            ->keyboard(Keyboard::make()->buttons([
+//                Button::make('Тех. поддержка')->action('support'),
+//                Button::make('Закупка')->action('purchase'),
+//            ]))->send();
+//    }
 
     protected function handleChatMessage(Stringable $text): void
     {
