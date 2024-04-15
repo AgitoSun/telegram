@@ -5,6 +5,7 @@ namespace App\Telegraph\Actions;
 use App\Telegraph\Webhook;
 use DefStudio\Telegraph\Facades\Telegraph;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
+use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
 use function Laravel\Prompts\text;
@@ -27,8 +28,9 @@ class Game extends WebhookHandler
 
     public static function index($chat): void
     {
-        $chat->html($chat->handleChatMessage($chat->message->text()))->send();
-
+        $chat->html("Введите имя")->send();
+        $keyboard = Keyboard::make();
+        $chat->html($keyboard)->send();
     }
 
     public function handleChatMessage(\Illuminate\Support\Stringable $text): void
