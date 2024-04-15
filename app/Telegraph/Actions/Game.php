@@ -6,6 +6,7 @@ use App\Telegraph\Webhook;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
+use function Laravel\Prompts\text;
 
 class Game extends WebhookHandler
 {
@@ -27,9 +28,9 @@ class Game extends WebhookHandler
         $chat->handleChatMessage();
     }
 
-    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
-    {
-        // in this example, a received message is sent back to the chat
-        $this->chat->html("Привет: $text")->send();
-    }
+//    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
+//    {
+//        // in this example, a received message is sent back to the chat
+//        $this->chat->html("Привет: $text")->send();
+//    }
 }

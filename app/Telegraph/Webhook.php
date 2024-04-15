@@ -29,11 +29,11 @@ class Webhook extends WebhookHandler
 //        $this->reply('sorry man, I failed');
 //    }
 
-    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
-    {
-        // in this example, a received message is sent back to the chat
-        $this->chat->html("Received: $text")->send();
-    }
+//    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
+//    {
+//        // in this example, a received message is sent back to the chat
+//        $this->chat->html("Received: $text")->send();
+//    }
 
     public function start(): void
     {
