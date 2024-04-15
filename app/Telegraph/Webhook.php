@@ -8,6 +8,7 @@ use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Stringable;
 use PHPUnit\Event\Code\Throwable;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -27,23 +28,26 @@ class Webhook extends WebhookHandler
 //        $this->reply('sorry man, I failed');
 //    }
 
-    public function start(): void
+    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
     {
-        $qwe = Button::make('Тех. поддержка')->action('support');
-        $this->chat->html(print_r($qwe, true))->send();
-
-        $this->chat
-            ->message('Что необходимо?')
-            ->keyboard(Keyboard::make()->buttons([
-                Button::make('Тех. поддержка')->action('support'),
-                Button::make('Закупка')->action('qwe'),
-            ]))->send();
+        // in this example, a received message is sent back to the chat
+        $this->chat->html("Received: $text")->send();
     }
 
-    public function support(Game $game): void
-    {
-        $game->index($this->chat);
-    }
+//    public function start(): void
+//    {
+//        $this->chat
+//            ->message('Что необходимо?')
+//            ->keyboard(Keyboard::make()->buttons([
+//                Button::make('Тех. поддержка')->action('support'),
+//                Button::make('Закупка')->action('qwe'),
+//            ]))->send();
+//    }
+//
+//    public function support(Game $game): void
+//    {
+//        $game->index($this->chat);
+//    }
 
 //    protected function handleChatMessage(Stringable $text): void
 //    {
