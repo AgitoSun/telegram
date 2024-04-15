@@ -16,20 +16,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Webhook extends WebhookHandler
 {
-
-    public function handleInlineQuery(\DefStudio\Telegraph\DTO\InlineQuery $inlineQuery): void
-    {
-        $query = $inlineQuery->query(); // "pest logo"
-
-        $logo = 564947; // the code to handle the query. just an example here
-
-        $this->bot->answerInlineQuery($inlineQuery->id(), [
-            InlineQueryResultPhoto::make($logo."-light", "https://logofinder.dev/$logo/light.jpg", "https://logofinder.dev/$logo/light/thumb.jpg")
-                ->caption('Light Logo'),
-            InlineQueryResultPhoto::make($logo."-dark", "https://logofinder.dev/$logo/dark.jpg", "https://logofinder.dev/$logo/dark/thumb.jpg")
-                ->caption('Light Logo'),
-        ])->send();
-    }
 //    /**
 //     * @throws \Throwable
 //     */

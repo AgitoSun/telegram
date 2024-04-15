@@ -8,6 +8,7 @@ use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Http\Request;
 use function Laravel\Prompts\text;
 
+
 class Game extends WebhookHandler
 {
 //    public function start()
@@ -21,16 +22,16 @@ class Game extends WebhookHandler
 //        $this->chat->html("Нажата кнопка")->send();
 //    }
 
+    public function handleChatMessage(\Illuminate\Support\Stringable $text): void
+    {
+        // in this example, a received message is sent back to the chat
+        $this->chat->html("Привет: $text")->send();
+    }
+
     public static function index($chat): void
     {
         $chat->html("Введите имя")->send();
-
-
     }
 
-//    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
-//    {
-//        // in this example, a received message is sent back to the chat
-//        $this->chat->html("Привет: $text")->send();
-//    }
+
 }
