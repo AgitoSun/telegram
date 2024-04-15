@@ -25,7 +25,7 @@ class Game extends WebhookHandler
     {
         $chat->html("Введите имя")->send();
 
-        $chat->handleChatMessage();
+
     }
 
 //    protected function handleChatMessage(\Illuminate\Support\Stringable $text): void
