@@ -39,7 +39,7 @@ class Webhook extends WebhookHandler
     public function start(): void
     {
         $this->chat
-            ->message('Что необходимо?')
+            ->message($this->message->text())
             ->keyboard(Keyboard::make()->buttons([
                 Button::make('Тех. поддержка')->action('support'),
                 Button::make('Закупка')->action('qwe'),
@@ -51,11 +51,11 @@ class Webhook extends WebhookHandler
         $game->index($this->chat);
     }
 
-//    protected function handleChatMessage(Stringable $text): void
-//    {
-//        // in this example, a received message is sent back to the chat
-//        $this->chat->html("Received: $text")->send();
-//    }
+    protected function handleChatMessage(Stringable $text): void
+    {
+        // in this example, a received message is sent back to the chat
+        $this->chat->html("Received: $text")->send();
+    }
 
 //    public function handle(Request $request, TelegraphBot $bot): void
 //    {

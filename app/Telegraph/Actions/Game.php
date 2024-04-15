@@ -28,6 +28,7 @@ class Game extends WebhookHandler
     public static function index($chat): void
     {
         $chat->html("Введите имя")->send();
+
     }
 
     public function handleChatMessage(\Illuminate\Support\Stringable $text): void
