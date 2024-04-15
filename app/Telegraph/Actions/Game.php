@@ -30,7 +30,7 @@ class Game extends WebhookHandler
     {
         $chat->html("Введите имя")->send();
         $keyboard = Keyboard::make();
-        $chat->html($keyboard)->send();
+        $chat->dd($keyboard)->send();
     }
 
     public function handleChatMessage(\Illuminate\Support\Stringable $text): void
