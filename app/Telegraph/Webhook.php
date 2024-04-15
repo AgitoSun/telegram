@@ -44,7 +44,6 @@ class Webhook extends WebhookHandler
                 Button::make('Тех. поддержка')->action('support'),
                 Button::make('Закупка')->action('qwe'),
             ]))->send();
-
     }
 
     public function support(Game $game): void
