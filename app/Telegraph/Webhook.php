@@ -3,6 +3,7 @@
 namespace App\Telegraph;
 
 use App\Telegraph\Actions\Game;
+use App\Telegraph\Commands\Start;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
@@ -34,20 +35,20 @@ class Webhook extends WebhookHandler
         $this->chat->html("Received: $text")->send();
     }
 
-//    public function start(): void
-//    {
-//        $this->chat
-//            ->message('Что необходимо?')
-//            ->keyboard(Keyboard::make()->buttons([
-//                Button::make('Тех. поддержка')->action('support'),
-//                Button::make('Закупка')->action('qwe'),
-//            ]))->send();
-//    }
-//
-//    public function support(Game $game): void
-//    {
-//        $game->index($this->chat);
-//    }
+    public function start(): void
+    {
+        $this->chat
+            ->message('Что необходимо?')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make('Тех. поддержка')->action('support'),
+                Button::make('Закупка')->action('qwe'),
+            ]))->send();
+    }
+
+    public function support(Game $game): void
+    {
+        $game->index($this->chat);
+    }
 
 //    protected function handleChatMessage(Stringable $text): void
 //    {
