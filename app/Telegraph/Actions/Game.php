@@ -29,7 +29,11 @@ class Game extends WebhookHandler
     public static function index($chat): void
     {
         $chat->html("Введите имя")->send();
-//        $keyboard = Keyboard::make();
+        $keyboard = Keyboard::make();
+        if ($keyboard == 'qwe')
+        {
+            $chat->html("qwe")->send();
+        }
 //        $chat->dd($keyboard)->send();
     }
 
