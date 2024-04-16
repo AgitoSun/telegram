@@ -33,7 +33,7 @@ class Game extends WebhookHandler
     public static function index($chat): void
     {
         $chat->html("Введите имя")->send();
-        $chat->handleChatMessage();
+        $chat->handleChatMessage($chat->message->text());
     }
 
 
